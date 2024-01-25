@@ -90,7 +90,7 @@ public class Apple : MonoBehaviour
     //Trifft der Apfel auf einen Collider werden je nach Collision die nötigen Schritte eingeleitet
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Water" && appleIsClean == false)
+        if (collision.gameObject.tag == "Water" && appleIsClean == false && AppleIsRotten == false)
         {
             isInWater = true;
         }
