@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> appleList;
 
-    private Apple appleScript;
+    private GameObject winScreen;
 
     private bool createApple = true;
     [SerializeField] private GameObject applePrefab;
@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        winScreen = GameObject.Find("Winscreen");
+        winScreen.SetActive(false);
+
         IsWaterClean = true;
 
         foreach (GameObject apple in appleList)
@@ -32,6 +35,11 @@ public class GameManager : MonoBehaviour
             createApple = false;
             Invoke("CreateApple", 8);
         }
+
+        if (Points >= 10)
+        {
+            WinCondition();
+        }
     }
 
     private void CreateApple()
@@ -43,4 +51,8 @@ public class GameManager : MonoBehaviour
         appleList.Add(applePrefab);
     }
 
+    private void WinCondition()
+    {
+        winScreen.SetActive(true);
+    }
 }

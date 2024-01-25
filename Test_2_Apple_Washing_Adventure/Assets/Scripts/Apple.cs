@@ -26,14 +26,12 @@ public class Apple : MonoBehaviour
     {
         if (AppleIsRotten == true)
         {
-            Debug.Log("rotten");
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
             AppleIsRotten = false;
         }
 
         if (isInWater == true && gameScript.IsWaterClean == true)
         {
-            Debug.Log("timer");
             timer += 1 * Time.deltaTime;
 
             //while (gameScript.isWaterClean == true)
@@ -66,6 +64,12 @@ public class Apple : MonoBehaviour
         if (appleIsClean == true)
         {
             gameScript.Points++;
+            Debug.Log("Apple is in basket");
+        }
+
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -73,7 +77,6 @@ public class Apple : MonoBehaviour
     {
         if (collision.gameObject.tag == "Water" && appleIsClean == false)
         {
-            Debug.Log("in Water");
             isInWater = true;
         }
     }
