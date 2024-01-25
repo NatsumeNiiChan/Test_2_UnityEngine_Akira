@@ -99,6 +99,8 @@ public class Apple : MonoBehaviour
         {
             GetComponent<DragAndDrop>().enabled = false;
             gameScript.appleList.Remove(gameObject);
+
+            //Destruction hat nicht funktioniert, weil das Mesh nicht readable war
         }
     }
 }
