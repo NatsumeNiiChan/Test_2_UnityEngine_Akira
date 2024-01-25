@@ -19,6 +19,7 @@ public class DragAndDrop : MonoBehaviour
         col = GetComponent<MeshRenderer>().material.color;
         GetComponent<MeshRenderer>().material.color = Color.yellow;
         GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
     }
 
     private void OnMouseDrag()
