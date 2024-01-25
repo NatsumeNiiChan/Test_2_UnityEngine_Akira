@@ -33,7 +33,6 @@ public class Apple : MonoBehaviour
 
         if (isInWater == true && gameScript.IsWaterClean == true)
         {
-            isInWater = false;
             Debug.Log("timer");
             timer += 1 * Time.deltaTime;
 
@@ -56,18 +55,26 @@ public class Apple : MonoBehaviour
 
     private void CleanApple()
     {
+        isInWater = false;
         timer = 0;
         appleIsClean = true;
         GetComponent<Renderer>().material.color = Color.red;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (appleIsClean == false)
+        if (appleIsClean == true)
+        {
+            gameScript.Points++;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Water" && appleIsClean == false)
         {
             Debug.Log("in Water");
             isInWater = true;
         }
-
     }
 }

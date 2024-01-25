@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject applePrefab;
 
     public bool IsWaterClean;
+    public int Points;
 
     private void Awake()
     {
@@ -39,12 +40,7 @@ public class GameManager : MonoBehaviour
 
         var position = new Vector3(Random.Range(-2.8f, -1.3f), Random.Range(2.8f, 3.35f), Random.Range(-0.5f, 0.5f));
         Instantiate(applePrefab, position, Quaternion.identity);
-        //applePrefab.GetComponent<Renderer>().material.color = Random.ColorHSV();
-        //appleScript = applePrefab.GetComponent<Apple>();
         appleList.Add(applePrefab);
-
-        //applePrefab.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
-        //Invoke("appleScript.KillApple", 2);
     }
 
 }
