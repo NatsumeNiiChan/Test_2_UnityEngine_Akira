@@ -7,6 +7,7 @@ public class Apple : MonoBehaviour
     public bool AppleIsRotten = false;
     private bool appleIsClean;
     [SerializeField] private bool isInWater;
+    private AudioSource pointsClip;
 
     private GameManager gameScript;
 
@@ -15,6 +16,7 @@ public class Apple : MonoBehaviour
 
     private void Awake()
     {
+        pointsClip = FindObjectOfType<AudioSource>();
         gameScript = FindObjectOfType<GameManager>();
 
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
@@ -30,14 +32,14 @@ public class Apple : MonoBehaviour
             AppleIsRotten = false;
         }
 
+        //while (gameScript.IsWaterClean == true)
+        //{
+        //    Geht nicht weil es direkt Unity zum abstürzen bringt
+        //}
+
         if (isInWater == true && gameScript.IsWaterClean == true)
         {
             timer += 1 * Time.deltaTime;
-
-            //while (gameScript.isWaterClean == true)
-            //{
-            //      Geht nicht weil es direkt Unity zum abstürzen bringt
-            //}
         }
 
         if (timer >= 2)
@@ -63,13 +65,18 @@ public class Apple : MonoBehaviour
     {
         if (appleIsClean == true)
         {
+            pointsClip.Play();
             gameScript.Points++;
             Debug.Log("Apple is in basket");
+            GetComponent<DragAndDrop>().enabled = false;
+            gameScript.appleList.Remove(gameObject);
+            gameScript.cleanAppleList.Add(gameObject);
         }
 
         else
         {
             Destroy(gameObject);
+            gameScript.appleList.Remove(gameObject);
         }
     }
 

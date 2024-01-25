@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> appleList;
+    public List<GameObject> appleList;
+    public List<GameObject> cleanAppleList;
 
     private GameObject winScreen;
 
