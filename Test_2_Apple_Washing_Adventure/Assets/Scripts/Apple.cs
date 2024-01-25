@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Apple : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool AppleIsRotten = false;
+
+
+    private void Awake()
     {
-        
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+        Invoke("KillApple", 10);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (AppleIsRotten == true)
+        {
+            Debug.Log("rotten");
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+            AppleIsRotten = false;
+        }
+    }
+
+    public void KillApple()
+    {
+        AppleIsRotten = true;
+    }
+
+    private void CleanApple()
+    {
+        GetComponent<Renderer>().material.color = Color.red;
     }
 }
