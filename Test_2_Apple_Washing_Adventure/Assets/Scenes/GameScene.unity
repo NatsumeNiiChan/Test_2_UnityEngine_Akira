@@ -36446,6 +36446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appleList:
   - {fileID: 1699691992}
+  - {fileID: 941029383}
+  cleanAppleList: []
   applePrefab: {fileID: 45579332237591759, guid: e74cbe8a533f62e4192169012270f25a,
     type: 3}
   IsWaterClean: 0
@@ -36623,6 +36625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 858567423571222133, guid: e74cbe8a533f62e4192169012270f25a,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 858567423571222133, guid: e74cbe8a533f62e4192169012270f25a,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.14
       objectReference: {fileID: 0}
@@ -36670,6 +36677,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: callbackOptions.onCompleted.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: callbackOptions.onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: callbackOptions.onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: callbackOptions.onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: callbackOptions.onCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36841,6 +36868,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &941029383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 45579332237591759, guid: e74cbe8a533f62e4192169012270f25a,
+    type: 3}
+  m_PrefabInstance: {fileID: 662084979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &949166543
 Mesh:
   m_ObjectHideFlags: 0
@@ -73299,7 +73332,7 @@ GameObject:
   - component: {fileID: 1426408256}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73453,7 +73486,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 63f905e7270927f4db8b697d1873f8de, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -73635,7 +73668,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1554630822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252856208}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1554630822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83478,7 +83523,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4343129275229032912, guid: e74cbe8a533f62e4192169012270f25a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -472147775963580301, guid: a06d57db4f58053479206879cadb0706,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

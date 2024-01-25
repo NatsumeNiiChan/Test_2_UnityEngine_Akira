@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //Festlegen bestimmter Variablen
     public List<GameObject> appleList;
     public List<GameObject> cleanAppleList;
 
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        //Variablen werden gesucht, festgelegt und die Äpfel gefärbt
         winScreen = GameObject.Find("Winscreen");
         winScreen.SetActive(false);
 
@@ -31,18 +34,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        //Überprüfung ob Äpfel erstellt werden können
         if (createApple == true)
         {
             createApple = false;
-            Invoke("CreateApple", 8);
+            Invoke("CreateApple", 5);
         }
 
+        //Win wird eingeleitet
         if (Points >= 10)
         {
             WinCondition();
         }
     }
 
+    //Apfel wird erstellt
     private void CreateApple()
     {
         createApple = true;
@@ -55,5 +61,10 @@ public class GameManager : MonoBehaviour
     private void WinCondition()
     {
         winScreen.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
